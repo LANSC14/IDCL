@@ -1,4 +1,5 @@
 import homeHero from '../assets/index-img-2.png'; // 假設你的背景圖檔名
+import { Link } from 'react-router-dom';
 
 //導出Home函數組件
 export default function Home() {
@@ -23,9 +24,9 @@ export default function Home() {
         </p>
         
         <button className="px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-all duration-300 shadow-xl">
-          <a href="/Introduction" className="text-black no-underline">
+          <Link to="/Introduction">
             欲知詳情
-          </a>
+          </Link>
         </button>
       </div>
     </div>
