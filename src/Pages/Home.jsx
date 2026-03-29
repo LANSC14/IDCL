@@ -5,14 +5,12 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
-  // 1. 偵測是否為移動裝置，並在手機版自動開啟 isHovered
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
       if (mobile) {
-        // 手機版：進場 300ms 後自動展開內容
+        // 手機版
         const timer = setTimeout(() => setIsHovered(true), 300);
         return () => clearTimeout(timer);
       }
@@ -25,8 +23,8 @@ export default function Home() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black font-sans">
-      
-      {/* 背景層：景深模糊過渡 */}
+
+      {/* 背景層 */}
       <div 
         className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1200 ease-[cubic-bezier(0.33,1,0.68,1)]
           ${isHovered ? 'blur-md scale-110 opacity-60' : 'blur-0 scale-100 opacity-100'}`}
@@ -38,12 +36,11 @@ export default function Home() {
       {/* 內容層 */}
       <div 
         className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6"
-        // 電腦版維持 Hover 邏輯，手機版則由 useEffect 接管
         onMouseEnter={() => !isMobile && setIsHovered(true)}
         onMouseLeave={() => !isMobile && setIsHovered(false)}
       >
         
-        {/* 大標題：手機版字體稍微縮小 (text-5xl) 以防斷行 */}
+        {/* 大標題 */}
         <h1 className={`text-5xl md:text-[10rem] font-black tracking-[-0.08em] transition-all duration-700 cursor-default select-none
           ${isHovered 
             ? 'text-white opacity-100 drop-shadow-[0_0_50px_rgba(255,255,255,0.4)] translate-y-0' 
@@ -70,8 +67,6 @@ export default function Home() {
           </Link>
         </div>
       </div>
-
-      {/* 電影感壓邊 (Vignette) */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_50%,black_100%)] opacity-70"></div>
     </div>
   );

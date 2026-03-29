@@ -31,7 +31,7 @@ export default function Making() {
         {/* 3. 時間軸 */}
         <div className="relative">
           
-          {/* 中心線 (電腦版顯示) */}
+          {/* 中心線 */}
           <div className="absolute left-1/2 -translate-x-1/2 w-px h-full bg-orange-200 hidden md:block z-0" />
 
           <div className="space-y-24 md:space-y-40">
@@ -45,14 +45,14 @@ export default function Making() {
                   className={`flex flex-col md:flex-row items-center justify-between relative ${index % 2 === 1 ? '' : 'md:flex-row-reverse'}`}
                 >
                   
-                  {/* 手機版步驟 */}
+                  {/* 手機版 */}
                   <div className="w-full md:hidden mb-6 text-center z-10">
                     <span className="text-2xl font-bold text-orange-500 italic uppercase tracking-widest block whitespace-nowrap">
                       {step.cat}
                     </span>
                   </div>
 
-                  {/* 內容卡片區 */}
+                  {/* 內容 */}
                   <div className="w-full md:w-[42%] z-20">
                     <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_15px_50px_rgba(0,0,0,0.06)] hover:shadow-2xl transition-all duration-500 border border-gray-50 flex flex-col items-center">
                       {step.img && (

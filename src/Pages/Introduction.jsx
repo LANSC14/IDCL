@@ -14,19 +14,19 @@ export default function Introduction() {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black font-sans">
       
-      {/* 背景層：手機版縮小縮放比例 (scale-105) 避免切到重要畫面 */}
+      {/* 背景層 */}
       <div 
-        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-[1200ms] ease-out
-          ${isVisible ? 'blur-[4px] scale-105 opacity-60' : 'blur-0 scale-100 opacity-100'}`}
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1200 ease-out
+          ${isVisible ? 'blur-xs scale-105 opacity-60' : 'blur-0 scale-100 opacity-100'}`}
         style={{ backgroundImage: `url(${homeHero})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-transparent to-black/90"></div>
       </div>
 
       {/* 內容層 */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-8 md:px-10">
         
-        {/* 標題：自動由暗轉亮 */}
+        {/* 標題 */}
         <h1 className={`text-4xl md:text-5xl font-bold mb-8 md:mb-12 tracking-[0.2em] transition-all duration-1000
           ${isVisible 
             ? 'text-white opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] translate-y-0' 
@@ -35,7 +35,7 @@ export default function Introduction() {
           簡介
         </h1>
 
-        {/* 內文：針對手機版調整行高與字距 */}
+        {/* 內文 */}
         <div className={`max-w-4xl transition-all duration-1000 delay-300 transform
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <p className="text-base md:text-xl tracking-[0.15em] md:tracking-[0.2em] font-light text-gray-100 leading-[1.8] md:leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
@@ -43,7 +43,7 @@ export default function Introduction() {
           </p>
         </div>
           
-        {/* 按鈕：手機版加大點擊區域 */}
+        {/* 按鈕 */}
         <div className={`mt-12 md:mt-16 transition-all duration-1000 delay-700 transform
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <Link to="/Making" className="inline-block active:scale-90 transition-all">
@@ -53,8 +53,6 @@ export default function Introduction() {
           </Link>
         </div>
       </div>
-
-      {/* 邊角遮罩：手機版稍微加重暗角，集中視覺 */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_30%,black_100%)] opacity-80"></div>
     </div>
   );
